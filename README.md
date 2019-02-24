@@ -134,6 +134,10 @@ For the moment, overriding the hardcoded part of the dynamic path is not allowed
 
 The demo examples where made possible with the help of the great articles at [delphiDabbler.com](https://delphidabbler.com/)
 
+## Contributing
+
+Please take a look at the [contributing](CONTRIBUTING.md) guidelines if you're interested in helping!
+
 ## License
 
 ScreensaverKit is licensed under the MIT License. See [LICENSE](LICENSE.md) for details.
