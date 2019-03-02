@@ -132,7 +132,7 @@ For the moment, overriding the hardcoded part of the dynamic path is not allowed
 
 ## Acknowledgments
 
-The demo examples where made possible with the help of the great articles at [delphiDabbler.com](https://delphidabbler.com/)
+The demo examples were made possible with the help of the great articles at [delphiDabbler.com](https://delphidabbler.com/)
 
 ## Contributing
 

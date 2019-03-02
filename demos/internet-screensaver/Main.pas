@@ -13,7 +13,7 @@
 { The Original Code is Main.pas.                                               }
 {                                                                              }
 { Unit owner:    Misel Krstovic                                                }
-{ Last modified: October 15, 2017                                              }
+{ Last modified: March 2, 2019                                                 }
 {                                                                              }
 {******************************************************************************}
 
@@ -72,8 +72,7 @@ implementation
 {$R *.dfm}
 
 uses
-  ScreensaverKit.WebBrowserUtils, WinInet, GraphUtil, UxTheme, CommCtrl, Math,
-  IdIcmpClient;
+  ScreensaverKit.WebBrowserUtils, GraphUtil, UxTheme, CommCtrl, Math;
 
 {
   https://lawrencebarsanti.wordpress.com/2010/01/03/lighten-colors-programmatically-with-delphi/
@@ -247,42 +246,12 @@ begin
   fWBContainer.Free;  // free the container pbject
 end;
 
-function CheckInternetConnection: boolean;
-var
-  Origin : cardinal;
-
-  Client: TIdIcmpClient;
-  Rec: Integer;
-begin
-  Result:= False;
-
-  // TODO: Need a better syncrhonous way to check connectivity
-  // Check if we have network link
-//  if InternetGetConnectedState(@Origin, 0) then begin
-//    // Check if path to internet
-//    Client := TIdIcmpClient.Create(nil);
-//    try
-//      Application.ProcessMessages;
-//
-//      Client.Host:= '8.8.8.8';
-//      Client.Ping();
-//      Sleep(2000);
-//      Rec := Client.ReplyStatus.BytesReceived;
-//      if Rec > 0 then Result := True else Result:= False;
-//    finally
-//      Client.Free;
-//    end;
-//  end;
-
-  result := InternetGetConnectedState(@Origin, 0);
-end;
-
 procedure TMainForm.FormShow(Sender: TObject);
 begin
   inherited;
 
   if not Screensaver.IsPreviewMode then begin
-    if CheckInternetConnection then begin
+    if TScreensaverWebBrowser.CheckInternetConnection then begin
       EnableProgressBar;
 
       // Start proxied navigation
